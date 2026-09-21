@@ -125,7 +125,7 @@
 	<ul class="pub_list">
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="1.933" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/gamp_poster.jpg"
 		       aria-label="GAMP teaser: the calibration pipeline, the gap-fidelity and quality-per-bit tables, and the branch-drift trap">
 			<source src="assets/videos/gamp.mp4" type="video/mp4">
@@ -142,7 +142,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="1.733" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/dscbam_poster.jpg"
 		       aria-label="DSCBAM-Net teaser: the network architecture, the ablation and benchmark tables, and Grad-CAM maps">
 			<source src="assets/videos/dscbam.mp4" type="video/mp4">
@@ -159,7 +159,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="2.767" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/lfmau_poster.jpg"
 		       aria-label="LFMAU-Net teaser: the attention U-Net architecture, the ablation and BUSI comparison tables, and qualitative segmentation results">
 			<source src="assets/videos/lfmau.mp4" type="video/mp4">
@@ -176,7 +176,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="5.267" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/bangla_poster.jpg"
 		       aria-label="Bangla emotion teaser: the teacher-student loop, the ablation and label-efficiency tables, and the GAN-BERT alternative">
 			<source src="assets/videos/bangla.mp4" type="video/mp4">
@@ -193,7 +193,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="17.367" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/onehealth_poster.jpg"
 		       aria-label="OneHealth+ teaser: the verification-first request lifecycle, the clinician review interface, and fail-safe handling of non-MRI input">
 			<source src="assets/videos/onehealth.mp4" type="video/mp4">
@@ -211,7 +211,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="1.733" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/gorent_poster.jpg"
 		       aria-label="GoRent teaser: the three-tier architecture, the scoring weights and risk bands, and the chat interface">
 			<source src="assets/videos/gorent.mp4" type="video/mp4">
@@ -234,7 +234,7 @@
 	<ul class="pub_list">
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="4.4" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/dash_poster.jpg"
 		       aria-label="DASH teaser: an annotated walk through the architecture, then teacher and student sample grids">
 			<source src="assets/videos/dash.mp4" type="video/mp4">
@@ -251,7 +251,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="2.6" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/iphoneblur_poster.jpg"
 		       aria-label="iPhoneBlur teaser: a blurred frame wiping across to its sharp reference">
 			<source src="assets/videos/iphoneblur.mp4" type="video/mp4">
@@ -270,7 +270,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="4.9" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/btinet_poster.jpg"
 		       aria-label="BTI-Net teaser: the architecture walk, the ablation and multi-task benchmark tables, and qualitative segmentation across three modalities">
 			<source src="assets/videos/btinet.mp4" type="video/mp4">
@@ -287,7 +287,7 @@
 	</li>
 
 	<li>
-		<video class="pub_thumb" muted loop playsinline preload="none"
+		<video data-start="5.3" class="pub_thumb" muted loop playsinline preload="none"
 		       poster="assets/posters/mlbdi_poster.jpg"
 		       aria-label="Multi-level decoder interaction teaser: the architecture walk, the benchmark table and qualitative segmentation">
 			<source src="assets/videos/mlbdi.mp4" type="video/mp4">
@@ -425,9 +425,12 @@
 	-->
 
 	<div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Paper teaser">
-		<button id="lb_close" type="button" aria-label="Close video">&times;</button>
+		<button id="lb_close" type="button" aria-label="Close">&times;</button>
 		<figure>
-			<video id="lb_video" controls playsinline preload="none"></video>
+			<div class="lb_stage">
+				<video id="lb_video" muted loop playsinline preload="none"></video>
+				<video id="lb_hd" muted loop playsinline preload="none" aria-hidden="true"></video>
+			</div>
 			<figcaption id="lb_caption"></figcaption>
 		</figure>
 	</div>
@@ -464,15 +467,17 @@
 		})();
 	</script>
 	<script>
-		/* Every teaser that is actually on screen plays. Holding all but one
-		   frozen on its poster is what read as "not starting" -- with three
-		   rows visible at once, two of them were always stopped.
+		/* Teaser playback and the enlarge-on-click window.
 
-		   What makes that affordable is the rendition: the page loads a 960x540
-		   cut (a 460px-wide thumbnail at DPR 2 wants ~920px), so a decode costs
-		   a quarter of the 1080p master. CONCURRENT still caps it, because a
-		   tall window can put five rows on screen at once. Clicking swaps the
-		   full-res master in for fullscreen. */
+		   Thumbnails: every teaser on screen plays (capped by CONCURRENT so a
+		   tall window cannot decode five at once). Each starts on the frame
+		   its poster shows, so the still simply begins to move, and parks
+		   there again when it leaves the screen.
+
+		   Window: opens instantly on the frame the thumbnail is showing, plays
+		   the page rendition the browser already has cached, and only then
+		   loads the HD master in the background, fading it in once fully
+		   buffered. No controls: click anywhere or press Escape to close. */
 		(function () {
 			var CONCURRENT = 4;        /* decode budget */
 			var VISIBLE = 0.12;        /* count it as on-screen past this */
@@ -481,22 +486,33 @@
 			if (!teasers.length) return;
 
 			var still = false;
-			try {
-				still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-			} catch (e) {}
+			try { still = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
-			/* A clip that fails to load must not sit as a black box: show the
-			   poster in its place. The <img> inside <video> never renders in a
-			   browser that supports video at all, so it cannot do this job.
-			   Errors raised while the fullscreen master is loading are not a
-			   dead clip: fall back to the page cut instead of discarding it. */
+			function play(el) {
+				var p = el.play();
+				if (p && p.catch) p.catch(function () {});
+			}
+			function startOf(v) { return parseFloat(v.dataset.start) || 0; }
+			function after(el, ev, ms, fn) {
+				var done = false;
+				function go() {
+					if (done) return;
+					done = true;
+					el.removeEventListener(ev, go);
+					fn();
+				}
+				el.addEventListener(ev, go);
+				setTimeout(go, ms);
+			}
+			function seek(el, t) {
+				if (t > 0 && el.duration && t < el.duration) {
+					try { el.currentTime = t; } catch (e) {}
+				}
+			}
+
+			/* A clip that fails to load shows its poster instead of a black box. */
 			teasers.forEach(function (v) {
-				v.muted = true;            /* property, not just the attribute:
-				                              iOS checks this before allowing play */
-				v.addEventListener("error", degrade, true);
-				v.querySelectorAll("source").forEach(function (sc) {
-					sc.addEventListener("error", degrade);
-				});
+				v.muted = true;            /* the property, which iOS checks */
 				function degrade() {
 					if (v.dataset.dead) return;
 					v.dataset.dead = "1";
@@ -506,66 +522,128 @@
 					img.alt = v.getAttribute("aria-label") || "";
 					if (v.parentNode) v.parentNode.replaceChild(img, v);
 				}
+				v.addEventListener("error", degrade, true);
+				v.querySelectorAll("source").forEach(function (sc) {
+					sc.addEventListener("error", degrade);
+				});
 			});
 
-			/* Clicking opens a contained overlay rather than native fullscreen.
-			   Fullscreen hands the whole screen to a 16:9 clip with no context and
-			   an OS-level transition; a lightbox keeps the page behind it and
-			   closes with Escape. The overlay loads the full-res master, so the
-			   thumbnail itself never swaps its source. */
+			/* ------------------------------------------------ window */
 			var lb = document.getElementById("lightbox");
 			var lbv = document.getElementById("lb_video");
+			var lbh = document.getElementById("lb_hd");
 			var lbc = document.getElementById("lb_caption");
 			var lbx = document.getElementById("lb_close");
-			var opener = null;
-			var lbOpen = false;
+			var fig = lb ? lb.querySelector("figure") : null;
+			var opener = null, lbOpen = false, token = 0;
+
+			/* The frame on screen right now, as an image: the window opens on
+			   exactly what was showing, with no black box and no jump. */
+			function snapshot(v) {
+				try {
+					if (v.readyState >= 2 && v.videoWidth) {
+						var c = document.createElement("canvas");
+						c.width = v.videoWidth; c.height = v.videoHeight;
+						c.getContext("2d").drawImage(v, 0, 0);
+						return c.toDataURL("image/jpeg", 0.86);
+					}
+				} catch (e) {}
+				return v.getAttribute("poster") || "";
+			}
+
+			/* HD only helps when the window is wider than the 960px page cut,
+			   and never on a connection that asked to save data. */
+			function wantHD() {
+				var save = navigator.connection && navigator.connection.saveData;
+				var w = (fig ? fig.getBoundingClientRect().width : 0) * (window.devicePixelRatio || 1);
+				return !save && w > 1000;
+			}
 
 			function openLightbox(v) {
 				if (!lb || v.dataset.dead) return;
 				var src = v.querySelector("source");
 				if (!src) return;
 				var page = src.getAttribute("src");
+				var at = v.readyState >= 1 ? v.currentTime : startOf(v);
+				var my = ++token;
 				opener = v;
 				lbOpen = true;
-				lbv.dataset.fallback = page;
-				lbv.src = page.replace(/\.mp4$/, "_hd.mp4");
+
 				lbc.textContent = v.getAttribute("aria-label") || "";
+				lbh.classList.remove("ready");
+				lbv.poster = snapshot(v);
 				lb.hidden = false;
-				/* stop the page behind from scrolling under the overlay */
 				document.documentElement.style.overflow = "hidden";
-				apply();                       /* every thumbnail pauses while open */
-				var q = lbv.play();
-				if (q && q.catch) q.catch(function () {});
-				if (lbx) lbx.focus();
+				apply();                                   /* thumbnails pause */
+
+				/* the page rendition: already cached, so this is immediate */
+				lbv.preload = "auto";
+				lbv.src = page;
+				lbv.addEventListener("loadedmetadata", function once() {
+					lbv.removeEventListener("loadedmetadata", once);
+					if (my !== token) return;
+					seek(lbv, at);
+					play(lbv);
+				});
+				lbv.load();
+
+				/* the master, fetched behind it and faded in when ready */
+				if (wantHD()) {
+					lbh.preload = "auto";
+					lbh.src = page.replace(/\.mp4$/, "_hd.mp4");
+					lbh.addEventListener("canplaythrough", function ready() {
+						lbh.removeEventListener("canplaythrough", ready);
+						if (my !== token || !lbOpen) return;
+						/* Get the master close with one seek, then close the last gap
+						   by running it slightly faster or slower until the two
+						   clocks agree within a frame, and only then fade. Seeking at
+						   the hand-off always lands late by the seek's own duration,
+						   which showed as a backwards hitch; rate matching has
+						   nothing to land. */
+						after(lbh, "seeked", 600, function () {
+							play(lbh);
+							var t0 = Date.now();
+							(function align() {
+								if (my !== token || !lbOpen) return;
+								var d = lbv.currentTime - lbh.currentTime;
+								if (Math.abs(d) > 1) {                 /* wrapped or far off */
+									lbh.playbackRate = 1;
+									seek(lbh, lbv.currentTime + 0.3);
+								} else if (Math.abs(d) <= 0.035 || Date.now() - t0 > 3000) {
+									lbh.playbackRate = 1;
+									lbh.classList.add("ready");
+									setTimeout(function () { if (my === token) lbv.pause(); }, 400);
+									return;
+								} else {
+									lbh.playbackRate = d > 0 ? 1.5 : 0.66;
+								}
+								requestAnimationFrame(align);
+							})();
+						});
+						seek(lbh, lbv.currentTime + 0.3);      /* roughly one seek ahead */
+					});
+					lbh.load();
+				}
+				if (lbx) lbx.focus({ preventScroll: true });
 			}
 
 			function closeLightbox() {
 				if (!lbOpen) return;
+				token++;
 				lbOpen = false;
 				lb.hidden = true;
-				lbv.pause();
-				lbv.removeAttribute("src");
-				lbv.load();                    /* drop the master from memory */
+				[lbv, lbh].forEach(function (el) {
+					el.pause();
+					el.removeAttribute("src");
+					el.load();                         /* release memory */
+				});
+				lbh.classList.remove("ready");
 				document.documentElement.style.overflow = "";
 				apply();
-				if (opener) { opener.focus(); opener = null; }
+				if (opener) { opener.focus({ preventScroll: true }); opener = null; }
 			}
 
-			/* if the master 404s or will not decode, fall back to the page cut
-			   rather than leaving a black rectangle */
-			if (lbv) lbv.addEventListener("error", function () {
-				var f = lbv.dataset.fallback;
-				if (!f || lbv.dataset.fell === "1") return;
-				lbv.dataset.fell = "1";
-				lbv.src = f;
-				var q = lbv.play();
-				if (q && q.catch) q.catch(function () {});
-			});
-
-			if (lbx) lbx.addEventListener("click", closeLightbox);
-			if (lb) lb.addEventListener("click", function (e) {
-				if (e.target === lb) closeLightbox();   /* backdrop only */
-			});
+			if (lb) lb.addEventListener("click", closeLightbox);   /* anywhere closes */
 			addEventListener("keydown", function (e) {
 				if (lbOpen && (e.key === "Escape" || e.key === "Esc")) closeLightbox();
 			});
@@ -575,58 +653,50 @@
 				v.setAttribute("role", "button");
 				v.addEventListener("click", function () { openLightbox(v); });
 				v.addEventListener("keydown", function (e) {
-					if (e.key === "Enter" || e.key === " ") {
-						e.preventDefault();
-						openLightbox(v);
-					}
+					if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(v); }
 				});
 			});
 
-			if (still) return;             /* poster only, never starts */
-
-			/* play() rejects if the element has no data yet, or if it is
-			   interrupted by a pause mid-load. Both are normal while scrolling,
-			   so retry once the browser says it can play rather than swallowing
-			   the rejection and leaving a frozen frame. */
+			/* ------------------------------------------------ thumbnails */
 			function start(v) {
 				if (v.dataset.dead) return;
-				if (v.preload !== "auto") { v.preload = "auto"; }
 				if (!v.dataset.armed) {
 					v.dataset.armed = "1";
-					v.load();
-					v.addEventListener("canplay", function () {
-						if (v.dataset.want === "1" && v.paused) {
-							var r = v.play();
-							if (r && r.catch) r.catch(function () {});
-						}
+					v.preload = "auto";
+					/* begin on the poster's own frame, before anything is drawn */
+					v.addEventListener("loadedmetadata", function () {
+						if (v.dataset.seeded) return;
+						v.dataset.seeded = "1";
+						seek(v, startOf(v));
 					});
+					v.addEventListener("canplay", function () {
+						if (v.dataset.want === "1" && v.paused) play(v);
+					});
+					v.load();
 				}
 				v.dataset.want = "1";
-				var p = v.play();
-				if (p && p.catch) p.catch(function () {});
+				play(v);
 			}
 
 			function stop(v, rewind) {
 				v.dataset.want = "0";
 				if (!v.paused) v.pause();
-				/* Rejoining a 32-second abstract half way through shows results
-				   with no setup. Off screen entirely, send it back to the top. */
-				if (rewind && v.currentTime > 0) {
-					try { v.currentTime = 0; } catch (e) {}
+				/* fully off screen: park on the poster frame, so returning to it
+				   neither shows results without their setup nor jumps */
+				if (rewind && v.dataset.seeded && Math.abs(v.currentTime - startOf(v)) > 0.05) {
+					seek(v, startOf(v));
 				}
 			}
 
 			var seen = teasers.map(function () { return 0; });
 
 			function apply() {
-				if (lbOpen) {          /* nothing behind the overlay needs to decode */
+				if (still || lbOpen || document.hidden) {
 					teasers.forEach(function (v) { stop(v, false); });
 					return;
 				}
 				var order = [];
-				for (var i = 0; i < teasers.length; i++) {
-					if (seen[i] >= VISIBLE) order.push(i);
-				}
+				for (var i = 0; i < teasers.length; i++) if (seen[i] >= VISIBLE) order.push(i);
 				order.sort(function (a, b) { return seen[b] - seen[a]; });
 				var live = order.slice(0, CONCURRENT);
 				teasers.forEach(function (v, i) {
@@ -639,16 +709,12 @@
 				var io = new IntersectionObserver(function (entries) {
 					entries.forEach(function (e) {
 						var i = teasers.indexOf(e.target);
-						if (i >= 0) {
-							seen[i] = e.isIntersecting ? e.intersectionRatio : 0;
-						}
+						if (i >= 0) seen[i] = e.isIntersecting ? e.intersectionRatio : 0;
 					});
 					apply();
 				}, { threshold: [0, 0.12, 0.3, 0.5, 0.75, 1] });
 				teasers.forEach(function (v) { io.observe(v); });
 			} else {
-				/* no IntersectionObserver: measure on scroll instead, so these
-				   browsers get the same behaviour rather than nine at once */
 				var tick = false;
 				function measure() {
 					tick = false;
@@ -670,12 +736,8 @@
 				measure();
 			}
 
-			/* A background tab keeps decoding otherwise. */
-			document.addEventListener("visibilitychange", function () {
-				if (document.hidden) teasers.forEach(function (v) { stop(v, false); });
-				else apply();
-			});
-
+			/* a background tab should not keep decoding */
+			document.addEventListener("visibilitychange", apply);
 		})();
 	</script>
 	<script>
