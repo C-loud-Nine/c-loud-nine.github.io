@@ -1,0 +1,456 @@
+/* ------------------------------------------------------------------
+   Abdullah Al Shafi, academic homepage
+   Palette: warm paper, deep ink, one blue accent, one warm accent kept
+   for honours (the oral badge). Every foreground/background pair below
+   was checked for WCAG AA contrast in both themes.
+   ------------------------------------------------------------------ */
+
+:root {
+	--bg: #fbfaf7;
+	--surface: #ffffff;
+	--ink: #1c1f24;
+	--muted: #5b6370;
+	--line: #e6e2d9;
+	--accent: #1d5c88;
+	--accent-soft: #e7eff6;
+	--honour: #a8461f;
+	--honour-soft: #f7e9e2;
+	--shadow: 0 1px 2px rgba(20, 24, 31, 0.04), 0 6px 18px rgba(20, 24, 31, 0.06);
+	--shadow-lift: 0 2px 4px rgba(20, 24, 31, 0.05), 0 14px 32px rgba(20, 24, 31, 0.10);
+
+	--serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+	--sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+	--measure: 880px;
+	--radius: 12px;
+	color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+	--bg: #111418;
+	--surface: #171b21;
+	--ink: #e6e8eb;
+	--muted: #9ba3ad;
+	--line: #272d35;
+	--accent: #7db4de;
+	--accent-soft: #1b2a37;
+	--honour: #e6946b;
+	--honour-soft: #33231b;
+	--shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 18px rgba(0, 0, 0, 0.25);
+	--shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.35), 0 14px 32px rgba(0, 0, 0, 0.35);
+	color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--bg: #111418;
+		--surface: #171b21;
+		--ink: #e6e8eb;
+		--muted: #9ba3ad;
+		--line: #272d35;
+		--accent: #7db4de;
+		--accent-soft: #1b2a37;
+		--honour: #e6946b;
+		--honour-soft: #33231b;
+		--shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 18px rgba(0, 0, 0, 0.25);
+		--shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.35), 0 14px 32px rgba(0, 0, 0, 0.35);
+		color-scheme: dark;
+	}
+}
+
+/* ------------------------------------------------------------ base */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+	margin: 0 auto;
+	max-width: var(--measure);
+	padding: 0 24px 48px;
+	background: var(--bg);
+	color: var(--ink);
+	font-family: var(--sans);
+	font-size: 16.5px;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+	overflow-wrap: break-word;
+	transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-size: 0% 1px;
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	transition: background-size 0.25s ease, color 0.2s ease;
+}
+a:hover, a:focus-visible { background-size: 100% 1px; }
+a:focus-visible, button:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 3px;
+}
+
+::selection { background: var(--accent-soft); }
+
+/* ------------------------------------------------------------ header */
+
+.hero {
+	display: grid;
+	grid-template-columns: 168px 1fr;
+	gap: 36px;
+	align-items: center;
+	padding: 48px 0 8px;
+}
+
+#profile_pic {
+	width: 168px;
+	height: 168px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 0 0 4px var(--surface), 0 0 0 5px var(--line), var(--shadow);
+}
+
+h1 {
+	margin: 0;
+	font-family: var(--serif);
+	font-weight: 600;
+	font-size: 2.45rem;
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+}
+
+.tagline {
+	margin: 8px 0 14px;
+	color: var(--muted);
+	font-size: 1rem;
+}
+
+.links { display: flex; flex-direction: column; gap: 2px; font-size: 0.93rem; }
+.links_row { color: var(--line); }
+.links_row a { color: var(--accent); }
+
+#theme_toggle {
+	margin-left: 10px;
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--line);
+	border-radius: 50%;
+	background: var(--surface);
+	color: var(--ink);
+	cursor: pointer;
+	font-size: 0.95rem;
+	line-height: 1;
+	vertical-align: middle;
+	transition: transform 0.3s ease, border-color 0.2s ease;
+}
+#theme_toggle:hover { transform: rotate(20deg); border-color: var(--accent); }
+
+.bio { margin-top: 18px; }
+.bio p { margin: 0 0 14px; }
+
+/* ------------------------------------------------------------ headings */
+
+h2 {
+	margin: 44px 0 18px;
+	font-family: var(--serif);
+	font-weight: 600;
+	font-size: 1.55rem;
+	letter-spacing: -0.005em;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+h2::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: var(--line);
+}
+
+.legend { color: var(--muted); font-size: 0.88rem; margin: -8px 0 14px; }
+
+/* ------------------------------------------------------------ tables (news, education, awards) */
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; vertical-align: top; padding: 9px 0; border-bottom: 1px solid var(--line); }
+tr:last-child th, tr:last-child td { border-bottom: none; }
+th {
+	width: 104px;
+	padding-right: 18px;
+	color: var(--muted);
+	font-weight: 500;
+	font-size: 0.86rem;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+	padding-top: 11px;
+}
+
+/* ------------------------------------------------------------ publication cards */
+
+.pub_list { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+
+.pub_list > li {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	gap: 22px;
+	align-items: start;
+	padding: 14px;
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.pub_list > li:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-lift);
+	border-color: var(--accent);
+}
+
+.pub_thumb:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
+
+.pub_thumb {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+	background: var(--accent-soft);
+	cursor: zoom-in;
+}
+
+.pub_text { font-size: 0.95rem; line-height: 1.55; }
+.pub_text b {
+	display: block;
+	margin-bottom: 4px;
+	font-family: var(--serif);
+	font-size: 1.06rem;
+	line-height: 1.35;
+	font-weight: 600;
+	color: var(--ink);
+}
+/* the title is already a block, so the <br> after it would add a blank line */
+.pub_text b + br { display: none; }
+.pub_text u { text-decoration: none; font-weight: 600; color: var(--ink); border-bottom: 1.5px solid var(--accent); }
+
+/* venue as a pill: the <i> directly inside each entry */
+.pub_text > i {
+	display: inline-block;
+	margin: 8px 0 6px;
+	padding: 1px 10px;
+	border-radius: 999px;
+	background: var(--accent-soft);
+	color: var(--accent);
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.8rem;
+	letter-spacing: 0.02em;
+}
+
+.oral-badge {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 1px 10px;
+	border-radius: 999px;
+	background: var(--honour-soft);
+	color: var(--honour);
+	font-weight: 700;
+	font-size: 0.78rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------ plain lists */
+
+ul:not(.pub_list) { padding-left: 1.1em; }
+ul:not(.pub_list) li { margin-bottom: 10px; }
+ul:not(.pub_list) li::marker { color: var(--accent); }
+ul:not(.pub_list) li b { font-weight: 600; }
+ul:not(.pub_list) li i { color: var(--muted); font-style: italic; }
+
+/* ------------------------------------------------------------ footer + back to top */
+
+footer {
+	margin-top: 56px;
+	padding-top: 20px;
+	border-top: 1px solid var(--line);
+	color: var(--muted);
+	font-size: 0.86rem;
+	text-align: center;
+}
+
+#to_top {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 20;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	border: 1px solid var(--line);
+	background: var(--surface);
+	color: var(--muted);
+	box-shadow: var(--shadow);
+	cursor: pointer;
+	font-size: 1rem;
+	line-height: 1;
+	display: grid;
+	place-items: center;
+	opacity: 0;
+	transform: translateY(14px) scale(0.85);
+	pointer-events: none;
+	transition: opacity 0.3s ease,
+	            transform 0.4s cubic-bezier(0.2, 0.9, 0.25, 1),
+	            color 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+/* how far down the page you are, drawn as a ring around the button. The
+   conic gradient is clipped to a 3px band by the radial mask. */
+#to_top::before {
+	content: "";
+	position: absolute;
+	inset: -5px;
+	border-radius: 50%;
+	background: conic-gradient(var(--accent) calc(var(--progress, 0) * 1%), transparent 0);
+	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+	mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+	opacity: 0.9;
+	pointer-events: none;
+}
+
+#to_top span {
+	display: block;
+	transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+#to_top.show { opacity: 1; transform: none; pointer-events: auto; }
+
+#to_top:hover {
+	color: var(--accent);
+	border-color: var(--accent);
+	box-shadow: var(--shadow-lift);
+}
+#to_top:hover span { transform: translateY(-3px); }
+#to_top:active { transform: scale(0.93); }
+
+/* ------------------------------------------------------------ lightbox
+   Clicking a teaser opens it here rather than in native fullscreen: the
+   page stays visible behind, and Escape closes it. */
+
+#lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+	background: rgba(12, 15, 20, 0.78);
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+	animation: lb_in 0.22s ease both;
+}
+#lightbox[hidden] { display: none; }
+
+#lightbox figure {
+	margin: 0;
+	/* Width is also capped by the height available, so a 16:9 video always
+	   fits whole. Constraining the video's own max-height instead fought
+	   its aspect-ratio and pillarboxed it inside its own element.
+	   64px is the caption's budget. */
+	width: min(92vw, 1180px, calc((88vh - 64px) * 16 / 9));
+	animation: lb_rise 0.28s cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+#lb_video {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	display: block;
+	border-radius: 10px;
+	background: #000;
+	box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+}
+
+#lb_caption {
+	margin-top: 12px;
+	text-align: center;
+	color: #dfe3e8;
+	font-size: 0.88rem;
+	line-height: 1.5;
+}
+
+#lb_close {
+	position: absolute;
+	top: 18px;
+	right: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background: rgba(255, 255, 255, 0.08);
+	color: #fff;
+	font-size: 1.4rem;
+	line-height: 1;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.2s ease;
+}
+#lb_close:hover { background: rgba(255, 255, 255, 0.18); transform: rotate(90deg); }
+
+@keyframes lb_in   { from { opacity: 0 } to { opacity: 1 } }
+@keyframes lb_rise { from { opacity: 0; transform: translateY(12px) scale(0.98) }
+                     to   { opacity: 1; transform: none } }
+
+@media (max-width: 560px) {
+	#lightbox { padding: 14px; }
+	#lb_close { top: 10px; right: 12px; }
+}
+
+/* ------------------------------------------------------------ reveal on scroll
+   Only elements the script tags get hidden, so the page is fully visible
+   with JavaScript off. */
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	*, *::before, *::after { transition: none !important; animation: none !important; }
+	.reveal { opacity: 1; transform: none; }
+	.pub_list > li:hover { transform: none; }
+	#to_top, #to_top:active { transform: none; }
+	#to_top:hover span { transform: none; }
+	#lightbox, #lightbox figure { animation: none; }
+	#lb_close:hover { transform: none; }
+}
+
+/* ------------------------------------------------------------ small screens */
+
+@media (max-width: 860px) {
+	.pub_list > li { grid-template-columns: 240px 1fr; gap: 18px; }
+}
+
+@media (max-width: 720px) {
+	.pub_list > li { grid-template-columns: 200px 1fr; gap: 16px; }
+}
+
+@media (max-width: 560px) {
+	body { padding: 0 18px 40px; font-size: 16px; }
+	.hero { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 18px; padding-top: 32px; }
+	#profile_pic { width: 132px; height: 132px; }
+	h1 { font-size: 2rem; }
+	.links { align-items: center; }
+	.pub_list > li { grid-template-columns: 1fr; }
+	th { width: 84px; }
+}
+
+@media print {
+	#theme_toggle, #to_top { display: none; }
+	.reveal { opacity: 1; transform: none; }
+	.pub_list > li { box-shadow: none; break-inside: avoid; }
+}

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<!-- layout adapted from github.com/rishabh-ranjan/rishabh-ranjan.github.io -->
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,600&amp;display=swap">
+	<link rel="stylesheet" href="style.css?v=42c52bf3">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+	<title>Abdullah Al Shafi, KUET</title>
+
+	<meta name="description" content="Abdullah Al Shafi is a computer vision researcher and KUET graduate, working on diffusion model compression, image restoration benchmarks and medical image analysis.">
+
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://c-loud-nine.github.io/">
+	<meta property="og:title" content="Abdullah Al Shafi">
+	<meta property="og:description" content="Computer vision researcher, KUET. Compact generative models, image restoration, benchmarks, medical image analysis.">
+	<meta property="og:image" content="https://c-loud-nine.github.io/assets/img/profile.jpg">
+	<meta name="twitter:card" content="summary">
+	<link rel="me" href="https://orcid.org/0009-0005-5114-6354">
+
+	<script>
+		// applied before first paint so the page never flashes the wrong theme
+		try {
+			var saved = localStorage.getItem("theme");
+			if (saved) document.documentElement.dataset.theme = saved;
+		} catch (e) {}
+	</script>
+</head>
+
+<body>
+	<header class="hero" id="top">
+		<img id="profile_pic" src="assets/img/profile.jpg" alt="Abdullah Al Shafi">
+		<div>
+			<h1>Abdullah Al Shafi</h1>
+			<p class="tagline">Computer Vision &middot; Generative Models &middot; Medical Image Analysis</p>
+			<nav class="links" aria-label="Profile links">
+			<span class="links_row">
+			<a href="assets/cv.pdf" target="_blank" rel="noopener">cv</a>
+			| <a href="https://scholar.google.com/citations?user=ArbB-roAAAAJ" target="_blank" rel="noopener">scholar</a>
+			| <a href="https://orcid.org/0009-0005-5114-6354" target="_blank" rel="noopener">orcid</a>
+			| <a href="https://github.com/C-loud-Nine" target="_blank" rel="noopener">github</a>
+			<button id="theme_toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">&#9789;</button>
+			</span>
+			<span class="links_row">
+			<a href="https://huggingface.co/Shafi99" target="_blank" rel="noopener">huggingface</a>
+			| <a href="https://www.researchgate.net/profile/Abdullah-Shafi-11" target="_blank" rel="noopener">researchgate</a>
+			| <a href="https://www.linkedin.com/in/shafi-abdullah-0955a0293/" target="_blank" rel="noopener">linkedin</a>
+			| <a href="mailto:abdullah.shafi99@gmail.com" target="_blank" rel="noopener">email</a>
+			</span>
+			</nav>
+		</div>
+	</header>
+
+	<div class="bio">
+	<p>
+	I recently completed my B.Sc. in Computer Science and Engineering at Khulna University of
+	Engineering &amp; Technology (KUET), Bangladesh, and am keen to keep working on research in
+	computer vision.
+	</p>
+
+	<p>
+	So far, the work has spanned generative modelling, image restoration and medical image
+	analysis: how far diffusion models can be compressed before their samples suffer, how
+	real-world degradations differ from the synthetic ones restoration methods learn from, and how
+	medical imaging models can let related tasks inform one another and recognise when their own
+	predictions are unreliable. Beneath all three is a concern with whether our evaluations
+	measure what we believe they measure.
+	</p>
+
+	<p>
+	At KUET, I completed my undergraduate thesis under the supervision of
+	Prof. <a href="https://scholar.google.com/citations?user=mBL3_A8AAAAJ" target="_blank" rel="noopener">Kazi Saeed Alam</a>, worked with
+	Prof. <a href="https://scholar.google.com/citations?user=eQB2XDkAAAAJ" target="_blank" rel="noopener">Sk. Md. Masudul Ahsan</a> on my
+	third-year system development project, and conducted research in the lab of
+	Prof. <a href="https://scholar.google.com/citations?user=gDh7IBQAAAAJ" target="_blank" rel="noopener">Sk Imran Hossain</a>. With him and
+	Prof. <a href="https://scholar.google.com/citations?user=bQTK8w4AAAAJ" target="_blank" rel="noopener">Engelbert Mephu Nguifo</a> of
+	Universit&eacute; Clermont Auvergne, I have worked on compact diffusion models and on
+	multi-task learning for medical image analysis.
+	</p>
+	</div>
+
+	<h2 id="news">News</h2>
+
+	<table>
+
+	<tr>
+		<th>Sep 2026</th>
+		<td>presented the guidance-aware quantization paper as an oral at IEEE HPEC</td>
+	</tr>
+
+	<tr>
+		<th>Sep 2026</th>
+		<td>OneHealth+ accepted in SoftwareX</td>
+	</tr>
+
+	<tr>
+		<th>Jul 2026</th>
+		<td>graduated with a B.Sc. in Computer Science and Engineering from KUET</td>
+	</tr>
+
+	<tr>
+		<th>Jul 2026</th>
+		<td>guidance-aware quantization paper accepted as an oral at IEEE HPEC</td>
+	</tr>
+
+	<tr>
+		<th>Jun 2026</th>
+		<td>GoRent published in SoftwareX; preprints out for DASH and BTI-Net</td>
+	</tr>
+
+	<tr>
+		<th>May 2026</th>
+		<td>released iPhoneBlur: 7,400 stratified blur&ndash;sharp pairs, with fine-tuned weights</td>
+	</tr>
+
+	</table>
+
+	<h2 id="publications">Publications</h2>
+
+	<ul class="pub_list">
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/gamp_poster.jpg"
+		       aria-label="GAMP teaser: the calibration pipeline, the gap-fidelity and quality-per-bit tables, and the branch-drift trap">
+			<source src="assets/videos/gamp.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/gamp_poster.jpg" alt="Guidance-aware quantization teaser figure">
+		</video>
+		<div class="pub_text">
+			<b>Closing the Null Space: Guidance-Aware Quantization for Classifier-Free Diffusion</b><br>
+			<u>Abdullah Al Shafi</u>, Sumaiya Rahim Suma<br>
+			<i>IEEE HPEC 2026</i> <span class="oral-badge">Oral</span><br>
+
+			<a href="https://arxiv.org/abs/2607.08241" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/GAMP_Guidance-Aware-Mixed-Precision" target="_blank">github</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/dscbam_poster.jpg"
+		       aria-label="DSCBAM-Net teaser: the network architecture, the ablation and benchmark tables, and Grad-CAM maps">
+			<source src="assets/videos/dscbam.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/dscbam_poster.jpg" alt="DSCBAM-Net architecture figure">
+		</video>
+		<div class="pub_text">
+			<b>DSCBAM-Net: A Lightweight Neural Network with Grouped Depthwise-Separable CBAM for Automated Brain Tumor Classification</b><br>
+			<u>Abdullah Al Shafi</u>, Sumaiya Rahim Suma, Sk. Md. Masudul Ahsan<br>
+			<i>EICT 2025</i><br>
+
+			<a href="https://ieeexplore.ieee.org/document/11355571" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/DSCBAM-Net-Depthwise-Separable-Brain-Tumor-Classification" target="_blank">github</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/lfmau_poster.jpg"
+		       aria-label="LFMAU-Net teaser: the attention U-Net architecture, the ablation and BUSI comparison tables, and qualitative segmentation results">
+			<source src="assets/videos/lfmau.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/lfmau_poster.jpg" alt="LFMAU-Net segmentation results figure">
+		</video>
+		<div class="pub_text">
+			<b>LFMAU-Net: Multi Attention U-Net with Adaptive Lesion Focal Loss for Breast Ultrasound Segmentation</b><br>
+			Md Kawsar Mahmud Khan Zunayed, <u>Abdullah Al Shafi</u>, Soumit Kumar Kundu, Safin Ahmmed<br>
+			<i>ICCIT 2025</i><br>
+
+			<a href="https://ieeexplore.ieee.org/document/11491744/" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/LFMAU-Net_with_Adaptive_Lesion_Focal_Loss_for_BUS_Segmentation" target="_blank">github</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/bangla_poster.jpg"
+		       aria-label="Bangla emotion teaser: the teacher-student loop, the ablation and label-efficiency tables, and the GAN-BERT alternative">
+			<source src="assets/videos/bangla.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/bangla_poster.jpg" alt="Bangla emotion classification teaser figure">
+		</video>
+		<div class="pub_text">
+			<b>Semi-Supervised Context-Aware Emotion Classification for Noisy Bangla Text Using Advanced Learning Strategies</b><br>
+			<u>Abdullah Al Shafi</u>, Sumaiya Rahim Suma<br>
+			<i>WIECON-ECE 2025</i><br>
+
+			<a href="https://ieeexplore.ieee.org/document/11525915/" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/Semi-Supervised-Context-Aware-Bangla-Emotion-Classification" target="_blank">github</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/onehealth_poster.jpg"
+		       aria-label="OneHealth+ teaser: the verification-first request lifecycle, the clinician review interface, and fail-safe handling of non-MRI input">
+			<source src="assets/videos/onehealth.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/onehealth_poster.jpg" alt="OneHealth+ request lifecycle figure">
+		</video>
+		<div class="pub_text">
+			<b>OneHealth+: An Open-Source Clinical Platform for Explainable, Clinician-in-the-Loop Brain Tumor MRI Classification</b><br>
+			<u>Abdullah Al Shafi</u>, Sumaiya Rahim Suma<br>
+			<i>SoftwareX 2026</i><br>
+
+			<!-- TODO: add the sciencedirect DOI link once the issue is assigned -->
+			<a href="https://github.com/C-loud-Nine/OneHealthPlus" target="_blank">github</a>
+			| <a href="https://doi.org/10.5281/zenodo.21432960" target="_blank">archive</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/gorent_poster.jpg"
+		       aria-label="GoRent teaser: the three-tier architecture, the scoring weights and risk bands, and the chat interface">
+			<source src="assets/videos/gorent.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/gorent_poster.jpg" alt="GoRent teaser figure">
+		</video>
+		<div class="pub_text">
+			<b>GoRent: Open-Source Software for Transparent Rule-Based Rental Risk Assessment and Intervention Support</b><br>
+			Sumaiya Rahim Suma, <u>Abdullah Al Shafi</u><br>
+			<i>SoftwareX 2026</i><br>
+
+			<a href="https://www.sciencedirect.com/science/article/pii/S2352711026002876" target="_blank">paper</a>
+			| <a href="https://github.com/suma-iya/GoRent" target="_blank">github</a>
+		</div>
+	</li>
+
+	</ul>
+
+	<h2 id="preprints">Preprints</h2>
+
+	<ul class="pub_list">
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/dash_poster.jpg"
+		       aria-label="DASH teaser: an annotated walk through the architecture, then teacher and student sample grids">
+			<source src="assets/videos/dash.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/dash_poster.jpg" alt="DASH distillation teaser figure">
+		</video>
+		<div class="pub_text">
+			<b>DASH: Dual-Branch Score Distillation for Guidance-Calibrated Compact Diffusion Models</b><br>
+			<u>Abdullah Al Shafi</u>, Kazi Saeed Alam, Sk Imran Hossain, Engelbert Mephu Nguifo<br>
+			<i>arXiv 2026</i><br>
+
+			<a href="https://arxiv.org/abs/2606.00798" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/DASH_Dual-Branch-Score-Distillation" target="_blank">github</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/iphoneblur_poster.jpg"
+		       aria-label="iPhoneBlur teaser: a blurred frame wiping across to its sharp reference">
+			<source src="assets/videos/iphoneblur.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/iphoneblur_poster.jpg" alt="iPhoneBlur benchmark teaser figure">
+		</video>
+		<div class="pub_text">
+			<b>iPhoneBlur: A Difficulty-Stratified Benchmark for Consumer Device Motion Deblurring</b><br>
+			<u>Abdullah Al Shafi</u>, Kazi Saeed Alam<br>
+			<i>arXiv 2026</i><br>
+
+			<a href="https://arxiv.org/abs/2605.05990" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/iPhoneBlur" target="_blank">github</a>
+			| <a href="https://www.kaggle.com/datasets/shafi09/iphoneblur" target="_blank">dataset</a>
+			| <a href="https://huggingface.co/Shafi99/iPhoneBlur_Finetune_Models" target="_blank">models</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/btinet_poster.jpg"
+		       aria-label="BTI-Net teaser: the architecture walk, the ablation and multi-task benchmark tables, and qualitative segmentation across three modalities">
+			<source src="assets/videos/btinet.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/btinet_poster.jpg" alt="BTI-Net architecture figure">
+		</video>
+		<div class="pub_text">
+			<b>BTI-Net: Bidirectional Decoder-Level Task Interaction via Uncertainty-Aware Gating for Multi-Task Medical Image Analysis</b><br>
+			<u>Abdullah Al Shafi</u>&ast;, Md Kawsar Mahmud Khan Zunayed&ast;, Safin Ahmmed, Sk Imran Hossain, Engelbert Mephu Nguifo<br>
+			<i>arXiv 2026</i><br>
+
+			<a href="https://arxiv.org/abs/2606.29102" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/BTI-Net_MTL" target="_blank">github</a>
+		</div>
+	</li>
+
+	<li>
+		<video class="pub_thumb" muted loop playsinline preload="none"
+		       poster="assets/posters/mlbdi_poster.jpg"
+		       aria-label="Multi-level decoder interaction teaser: the architecture walk, the benchmark table and qualitative segmentation">
+			<source src="assets/videos/mlbdi.mp4" type="video/mp4">
+			<img class="pub_thumb" src="assets/posters/mlbdi_poster.jpg" alt="Breast ultrasound multi-task teaser figure">
+		</video>
+		<div class="pub_text">
+			<b>Multi-Level Bidirectional Decoder Interaction for Uncertainty-Aware Breast Ultrasound Analysis</b><br>
+			<u>Abdullah Al Shafi</u>, Md Kawsar Mahmud Khan Zunayed, Safin Ahmmed, Sk Imran Hossain, Engelbert Mephu Nguifo<br>
+			<i>arXiv 2026</i><br>
+
+			<a href="https://arxiv.org/abs/2603.01295" target="_blank">paper</a>
+			| <a href="https://github.com/C-loud-Nine/Uncertainty-Aware-Multi-Level-Decoder-Interaction" target="_blank">github</a>
+		</div>
+	</li>
+
+	</ul>
+
+	<h2 id="progress">In Progress</h2>
+
+	<!-- one sentence per item, status last. Venues are named only where review
+	     is not double-blind. -->
+	<ul>
+		<li>
+			<b>Severity-Channel Conditioning.</b> Where a restoration network should be told how
+			degraded its input is: at the input, in the features, at the output or in the objective.
+			<i>Under review, IEEE TIP.</i>
+			<a href="https://github.com/C-loud-Nine/Severity-Channel-Conditioning" target="_blank">github</a>
+		</li>
+		<li>
+			<b>Frame timing in high-speed capture.</b> An audit of silent frame-rate drops in
+			240&nbsp;fps phone video, and the bias they leave in blur synthesised from it.
+		</li>
+		<li>
+			<b>Dermoscopic hair inpainting.</b> A benchmark of classical and learned hair removal on
+			16,689 ISIC 2019 pairs, where the ranking of methods changes with hair density.
+			<i>In preparation for CMPB.</i>
+		</li>
+		<li>
+			<b>Structural MRI in Alzheimer's disease.</b> A review of 78 studies connecting how
+			atrophy is measured, how progression is modelled and how conversion is predicted.
+			<i>In preparation for IEEE RBME.</i>
+		</li>
+		<li>
+			<b>XSecNet.</b> 3D shape reconstruction from sparse cross-sections, constrained to agree
+			with every slice it observes.
+		</li>
+		<li>
+			<b>Echocardiographic ventricle reconstruction.</b> The same problem in the clinic:
+			recovering left-ventricle shape from sparse echocardiographic views.
+		</li>
+		<li>
+			<b>GDO-MFAS.</b> Alzheimer's progression as continuous dynamics, with a
+			genetics-conditioned neural ODE that predicts time to conversion.
+		</li>
+	</ul>
+
+	<h2 id="code">Code &amp; Data</h2>
+
+	<p>
+	Release artifacts for the papers above are linked from each entry. Beyond those:
+	</p>
+
+	<ul>
+		<li>
+			<b>iPhoneBlur</b>: 7,400 blur&ndash;sharp pairs from iPhone 17 Pro video, stratified into
+			three difficulty tiers validated by a monotonic 2.2&times; rise in optical-flow magnitude.
+			<a href="https://www.kaggle.com/datasets/shafi09/iphoneblur" target="_blank">kaggle</a>
+			| <a href="https://huggingface.co/datasets/Shafi99/iPhoneBlur" target="_blank">hugging face</a>
+			| <a href="https://huggingface.co/Shafi99/iPhoneBlur_Finetune_Models" target="_blank">weights</a>
+		</li>
+		<li>
+			<b>VisionRestorePro</b>: classical image restoration on CPU, covering inverse filtering,
+			deconvolution and structural matrix reconstruction.
+			<a href="https://github.com/C-loud-Nine/VisionRestorePro-Classical_Image_Restoration_System-IPCV_Project" target="_blank">github</a>
+		</li>
+		<li>
+			<b>Tensor Fusion Network</b>: a reimplementation of the EMNLP 2017 multimodal sentiment model.
+			<a href="https://github.com/C-loud-Nine/Tensor-Fusion-Network-for-Multimodal-Sentiment-Analysis_EMNLP-2017_Implementation" target="_blank">github</a>
+		</li>
+	</ul>
+
+	<h2 id="education">Education</h2>
+
+	<table>
+
+	<tr>
+		<th>2022&ndash;26</th>
+		<td>B.Sc. in Computer Science and Engineering, Khulna University of Engineering &amp; Technology</td>
+	</tr>
+
+	</table>
+
+	<!-- experience: uncomment and fill in. One row per role, newest first.
+	<h2>Experience</h2>
+
+	<table>
+
+	<tr>
+		<th>MON YYYY&ndash;MON YYYY</th>
+		<td>ROLE, ORGANISATION. One line on what you did there.</td>
+	</tr>
+
+	</table>
+	-->
+
+	<h2 id="achievements">Achievements</h2>
+
+	<table>
+
+	<tr>
+		<th>3rd year</th>
+		<td>Dean's List Award, Faculty of Electrical and Electronic Engineering, KUET, for academic excellence</td>
+	</tr>
+
+	<!-- further entries in the same form:
+	<tr>
+		<th>YEAR</th>
+		<td>AWARD, AWARDING BODY</td>
+	</tr>
+	-->
+
+	</table>
+
+	<!-- reviewing: uncomment and fill in once you have a venue to list
+	<h2>Reviewing</h2>
+
+	<table>
+
+	<tr>
+		<th>ICCIT</th>
+		<td>2026</td>
+	</tr>
+
+	</table>
+	-->
+
+	<div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Paper teaser">
+		<button id="lb_close" type="button" aria-label="Close video">&times;</button>
+		<figure>
+			<video id="lb_video" controls playsinline preload="none"></video>
+			<figcaption id="lb_caption"></figcaption>
+		</figure>
+	</div>
+
+	<button id="to_top" type="button" aria-label="Back to top" title="Back to top"><span>&uarr;</span></button>
+
+	<footer>
+		<a href="mailto:abdullah.shafi99@gmail.com" target="_blank" rel="noopener">abdullah.shafi99@gmail.com</a><br>
+		Last updated September 2026.
+	</footer>
+	<script>
+		(function () {
+			var root = document.documentElement;
+			var button = document.getElementById("theme_toggle");
+
+			function isDark() {
+				if (root.dataset.theme) return root.dataset.theme === "dark";
+				return window.matchMedia("(prefers-color-scheme: dark)").matches;
+			}
+
+			function render() {
+				button.textContent = isDark() ? "☼" : "☽";
+			}
+
+			button.addEventListener("click", function () {
+				root.dataset.theme = isDark() ? "light" : "dark";
+				try {
+					localStorage.setItem("theme", root.dataset.theme);
+				} catch (e) {}
+				render();
+			});
+
+			render();
+		})();
+	</script>
+	<script>
+		/* Every teaser that is actually on screen plays. Holding all but one
+		   frozen on its poster is what read as "not starting" -- with three
+		   rows visible at once, two of them were always stopped.
+
+		   What makes that affordable is the rendition: the page loads a 960x540
+		   cut (a 460px-wide thumbnail at DPR 2 wants ~920px), so a decode costs
+		   a quarter of the 1080p master. CONCURRENT still caps it, because a
+		   tall window can put five rows on screen at once. Clicking swaps the
+		   full-res master in for fullscreen. */
+		(function () {
+			var CONCURRENT = 4;        /* decode budget */
+			var VISIBLE = 0.12;        /* count it as on-screen past this */
+			var teasers = Array.prototype.slice.call(
+				document.querySelectorAll("video.pub_thumb"));
+			if (!teasers.length) return;
+
+			var still = false;
+			try {
+				still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+			} catch (e) {}
+
+			/* A clip that fails to load must not sit as a black box: show the
+			   poster in its place. The <img> inside <video> never renders in a
+			   browser that supports video at all, so it cannot do this job.
+			   Errors raised while the fullscreen master is loading are not a
+			   dead clip: fall back to the page cut instead of discarding it. */
+			teasers.forEach(function (v) {
+				v.muted = true;            /* property, not just the attribute:
+				                              iOS checks this before allowing play */
+				v.addEventListener("error", degrade, true);
+				v.querySelectorAll("source").forEach(function (sc) {
+					sc.addEventListener("error", degrade);
+				});
+				function degrade() {
+					if (v.dataset.dead) return;
+					v.dataset.dead = "1";
+					var img = new Image();
+					img.className = v.className;
+					img.src = v.getAttribute("poster");
+					img.alt = v.getAttribute("aria-label") || "";
+					if (v.parentNode) v.parentNode.replaceChild(img, v);
+				}
+			});
+
+			/* Clicking opens a contained overlay rather than native fullscreen.
+			   Fullscreen hands the whole screen to a 16:9 clip with no context and
+			   an OS-level transition; a lightbox keeps the page behind it and
+			   closes with Escape. The overlay loads the full-res master, so the
+			   thumbnail itself never swaps its source. */
+			var lb = document.getElementById("lightbox");
+			var lbv = document.getElementById("lb_video");
+			var lbc = document.getElementById("lb_caption");
+			var lbx = document.getElementById("lb_close");
+			var opener = null;
+			var lbOpen = false;
+
+			function openLightbox(v) {
+				if (!lb || v.dataset.dead) return;
+				var src = v.querySelector("source");
+				if (!src) return;
+				var page = src.getAttribute("src");
+				opener = v;
+				lbOpen = true;
+				lbv.dataset.fallback = page;
+				lbv.src = page.replace(/\.mp4$/, "_hd.mp4");
+				lbc.textContent = v.getAttribute("aria-label") || "";
+				lb.hidden = false;
+				/* stop the page behind from scrolling under the overlay */
+				document.documentElement.style.overflow = "hidden";
+				apply();                       /* every thumbnail pauses while open */
+				var q = lbv.play();
+				if (q && q.catch) q.catch(function () {});
+				if (lbx) lbx.focus();
+			}
+
+			function closeLightbox() {
+				if (!lbOpen) return;
+				lbOpen = false;
+				lb.hidden = true;
+				lbv.pause();
+				lbv.removeAttribute("src");
+				lbv.load();                    /* drop the master from memory */
+				document.documentElement.style.overflow = "";
+				apply();
+				if (opener) { opener.focus(); opener = null; }
+			}
+
+			/* if the master 404s or will not decode, fall back to the page cut
+			   rather than leaving a black rectangle */
+			if (lbv) lbv.addEventListener("error", function () {
+				var f = lbv.dataset.fallback;
+				if (!f || lbv.dataset.fell === "1") return;
+				lbv.dataset.fell = "1";
+				lbv.src = f;
+				var q = lbv.play();
+				if (q && q.catch) q.catch(function () {});
+			});
+
+			if (lbx) lbx.addEventListener("click", closeLightbox);
+			if (lb) lb.addEventListener("click", function (e) {
+				if (e.target === lb) closeLightbox();   /* backdrop only */
+			});
+			addEventListener("keydown", function (e) {
+				if (lbOpen && (e.key === "Escape" || e.key === "Esc")) closeLightbox();
+			});
+
+			teasers.forEach(function (v) {
+				v.setAttribute("tabindex", "0");
+				v.setAttribute("role", "button");
+				v.addEventListener("click", function () { openLightbox(v); });
+				v.addEventListener("keydown", function (e) {
+					if (e.key === "Enter" || e.key === " ") {
+						e.preventDefault();
+						openLightbox(v);
+					}
+				});
+			});
+
+			if (still) return;             /* poster only, never starts */
+
+			/* play() rejects if the element has no data yet, or if it is
+			   interrupted by a pause mid-load. Both are normal while scrolling,
+			   so retry once the browser says it can play rather than swallowing
+			   the rejection and leaving a frozen frame. */
+			function start(v) {
+				if (v.dataset.dead) return;
+				if (v.preload !== "auto") { v.preload = "auto"; }
+				if (!v.dataset.armed) {
+					v.dataset.armed = "1";
+					v.load();
+					v.addEventListener("canplay", function () {
+						if (v.dataset.want === "1" && v.paused) {
+							var r = v.play();
+							if (r && r.catch) r.catch(function () {});
+						}
+					});
+				}
+				v.dataset.want = "1";
+				var p = v.play();
+				if (p && p.catch) p.catch(function () {});
+			}
+
+			function stop(v, rewind) {
+				v.dataset.want = "0";
+				if (!v.paused) v.pause();
+				/* Rejoining a 32-second abstract half way through shows results
+				   with no setup. Off screen entirely, send it back to the top. */
+				if (rewind && v.currentTime > 0) {
+					try { v.currentTime = 0; } catch (e) {}
+				}
+			}
+
+			var seen = teasers.map(function () { return 0; });
+
+			function apply() {
+				if (lbOpen) {          /* nothing behind the overlay needs to decode */
+					teasers.forEach(function (v) { stop(v, false); });
+					return;
+				}
+				var order = [];
+				for (var i = 0; i < teasers.length; i++) {
+					if (seen[i] >= VISIBLE) order.push(i);
+				}
+				order.sort(function (a, b) { return seen[b] - seen[a]; });
+				var live = order.slice(0, CONCURRENT);
+				teasers.forEach(function (v, i) {
+					if (live.indexOf(i) >= 0) start(v);
+					else stop(v, seen[i] === 0);
+				});
+			}
+
+			if ("IntersectionObserver" in window) {
+				var io = new IntersectionObserver(function (entries) {
+					entries.forEach(function (e) {
+						var i = teasers.indexOf(e.target);
+						if (i >= 0) {
+							seen[i] = e.isIntersecting ? e.intersectionRatio : 0;
+						}
+					});
+					apply();
+				}, { threshold: [0, 0.12, 0.3, 0.5, 0.75, 1] });
+				teasers.forEach(function (v) { io.observe(v); });
+			} else {
+				/* no IntersectionObserver: measure on scroll instead, so these
+				   browsers get the same behaviour rather than nine at once */
+				var tick = false;
+				function measure() {
+					tick = false;
+					var vh = window.innerHeight || document.documentElement.clientHeight;
+					teasers.forEach(function (v, i) {
+						var r = v.getBoundingClientRect();
+						var shown = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+						seen[i] = r.height > 0 ? Math.max(0, shown) / r.height : 0;
+					});
+					apply();
+				}
+				function onScroll() {
+					if (tick) return;
+					tick = true;
+					(window.requestAnimationFrame || setTimeout)(measure, 16);
+				}
+				addEventListener("scroll", onScroll, true);
+				addEventListener("resize", onScroll);
+				measure();
+			}
+
+			/* A background tab keeps decoding otherwise. */
+			document.addEventListener("visibilitychange", function () {
+				if (document.hidden) teasers.forEach(function (v) { stop(v, false); });
+				else apply();
+			});
+
+		})();
+	</script>
+	<script>
+		/* Back-to-top and reveal-on-scroll. Both are progressive: with
+		   scripting off the page is fully visible and fully usable. */
+		(function () {
+			var toTop = document.getElementById("to_top");
+			var still = false;
+			try { still = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+			/* Reading scrollHeight forces a synchronous layout, so it is cached
+			   and only recomputed on resize. Doing it inside the scroll handler
+			   reflowed the document on every scroll event, which is exactly the
+			   kind of thing that makes scrolling feel like it is stuttering. */
+			var span = 1;
+			function remeasure() {
+				span = (document.documentElement.scrollHeight - window.innerHeight) || 1;
+			}
+
+			var pendingScroll = false;
+			function paint() {
+				pendingScroll = false;
+				if (!toTop) return;
+				var y = window.scrollY || document.documentElement.scrollTop;
+				toTop.classList.toggle("show", y > 700);
+				toTop.style.setProperty("--progress",
+					Math.min(100, Math.max(0, y / span * 100)).toFixed(1));
+			}
+			function onScroll() {
+				if (pendingScroll) return;
+				pendingScroll = true;
+				(window.requestAnimationFrame || setTimeout)(paint, 16);
+			}
+			addEventListener("scroll", onScroll, { passive: true });
+			addEventListener("resize", function () { remeasure(); onScroll(); });
+			remeasure();
+			paint();
+			if (toTop) toTop.addEventListener("click", function () {
+				window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+			});
+
+			if (!("IntersectionObserver" in window)) return;
+
+			if (still) return;
+
+			/* Gentle reveal as content scrolls in.
+
+			   Driven by the scroll handler rather than an IntersectionObserver:
+			   an observer only fires when intersection CHANGES, so an element
+			   that goes from below the viewport to above it in one jump -- a
+			   scrollbar drag, an anchor link, a restored scroll position -- never
+			   fires at all and would stay at opacity 0 for good. A sweep cannot
+			   miss that case.
+
+			   Publication cards are excluded on purpose: hiding one at opacity 0
+			   does not stop its video decoding, so a faded card would burn a
+			   decode slot the reader cannot see. */
+			var pending = [];
+			document.querySelectorAll("h2, table tr, ul:not(.pub_list) > li, .bio p")
+				.forEach(function (el) {
+					if (el.getBoundingClientRect().top > window.innerHeight) {
+						el.classList.add("reveal");
+						pending.push(el);
+					}
+				});
+
+			var queued = false;
+			function sweep() {
+				queued = false;
+				var edge = window.innerHeight * 0.92;
+				pending = pending.filter(function (el) {
+					if (el.getBoundingClientRect().top < edge) {
+						el.classList.add("in");
+						return false;
+					}
+					return true;
+				});
+				if (!pending.length) {
+					removeEventListener("scroll", onReveal);
+					removeEventListener("resize", onReveal);
+				}
+			}
+			function onReveal() {
+				if (queued) return;
+				queued = true;
+				(window.requestAnimationFrame || setTimeout)(sweep, 16);
+			}
+			addEventListener("scroll", onReveal, { passive: true });
+			addEventListener("resize", onReveal);
+		})();
+	</script>
+</body>
+
+</html>
