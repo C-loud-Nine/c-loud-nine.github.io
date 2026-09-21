@@ -368,14 +368,29 @@ footer {
 	animation: lb_rise 0.28s cubic-bezier(0.2, 0.9, 0.25, 1) both;
 }
 
-#lb_video {
+/* two stacked videos: the cached page cut plays at once, the HD master
+   fades in over it only when fully buffered */
+.lb_stage {
+	position: relative;
 	width: 100%;
 	aspect-ratio: 16 / 9;
-	display: block;
 	border-radius: 10px;
+	overflow: hidden;
 	background: #000;
 	box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+	cursor: zoom-out;
 }
+#lb_video, #lb_hd {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: contain;
+}
+#lb_hd { opacity: 0; transition: opacity 0.35s ease; }
+#lb_hd.ready { opacity: 1; }
+#lightbox { cursor: zoom-out; }
 
 #lb_caption {
 	margin-top: 12px;
